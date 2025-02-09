@@ -26,7 +26,7 @@ public:
 
 	void Move(char*keys);
 
-	void Distance();
+
 
 	void Draw();
 
