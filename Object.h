@@ -2,6 +2,7 @@
 #include"Structer.h"
 
 
+
 class Object
 {
 protected:
