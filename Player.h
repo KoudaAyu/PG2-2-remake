@@ -9,7 +9,7 @@ class Player : public Object
 private:
 
 	bool isAlive_;
-	Bullet* bullets_[kMaxBullet];
+	Bullet bullets_[kMaxBullet];
 	Vector2 size_;
 	
 

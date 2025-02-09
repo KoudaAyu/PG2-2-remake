@@ -54,9 +54,9 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		{
 			for (int j = 0; j < kMaxEnemies; j++)
 			{
-				if (CircleToCircle())
+				if (CircleToCircle(player->GetBullets()[i].GetPos(), player->GetBullets()[i].radius_, enemy[j]->GetPos(), enemy[j]->size_.x / 2))
 				{
-					bullet_[i]->SetIsActive(false);
+					player->GetBullets()[i].SetIsActive(false);
 					enemy[j]->SetIsAlive(false);
 				}
 			}
