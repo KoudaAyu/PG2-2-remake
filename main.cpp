@@ -26,11 +26,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 	Player* player =new Player({640.0f,360.0f});
 
-	Bullet* bullet[kMaxBullet];
-	for (int i = 0; i < kMaxBullet; i++)
-	{
-		bullet[i] = new Bullet();
-	}
+	
 
 	Enemy* enemy[kMaxEnemies];
 	for (int i = 0; i < kMaxEnemies; i++)
@@ -58,18 +54,16 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		{
 			for (int j = 0; j < kMaxEnemies; j++)
 			{
-				if (CircleToCircle(bullet[i]->GetPos(), bullet[i]->radius_, enemy[j]->GetPos(), enemy[i]->size_.x * 0.5f))
+				if (CircleToCircle())
 				{
-					bullet[i]->SetIsActive(false);
+					bullet_[i]->SetIsActive(false);
 					enemy[j]->SetIsAlive(false);
 				}
 			}
 		}
 
-		for (int i = 0; i < kMaxBullet; i++)
-		{
-			bullet[i]->Draw();
-		}
+		
+		
 
 		for (int i = 0; i < kMaxEnemies; i++)
 		{

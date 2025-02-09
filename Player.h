@@ -9,12 +9,13 @@ class Player : public Object
 private:
 
 	bool isAlive_;
+	Bullet* bullets_[kMaxBullet];
 	Vector2 size_;
 	
 
 public:
 
-	Bullet* bullets_[kMaxBullet];
+	
 	Enemy* enemy_ = nullptr;
 
 	float coolTimes_;
@@ -23,6 +24,11 @@ public:
 	~Player();
 
 	Vector2 GetPos(){ return pos_; };
+
+	void SetIsAlive(bool isAlive);
+
+	
+	Bullet* GetBullets();
 
 	void Move(char*keys);
 
