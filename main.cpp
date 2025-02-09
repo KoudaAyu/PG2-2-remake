@@ -1,6 +1,7 @@
 #include <Novice.h>
 #include"Bullet.h"
 #include"Conster.h"
+#include"Distance.h"
 #include"Enemy.h"
 #include"Enumuration.h"
 #include"Object.h"
@@ -51,22 +52,29 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		///
 
 		player->Move(keys);
-
-	
-
-		///
-		/// ↑更新処理ここまで
-		///
-
-		///
-		/// ↓描画処理ここから
-		///
-
 		player->Draw();
 
 		for (int i = 0; i < kMaxBullet; i++)
 		{
+			for (int j = 0; j < kMaxEnemies; j++)
+			{
+				if (CircleToCircle(bullet[i]->GetPos(), bullet[i]->radius_, enemy[j]->GetPos(), enemy[i]->size_.x * 0.5f))
+				{
+					bullet[i]->SetIsActive(false);
+					enemy[j]->SetIsAlive(false);
+				}
+			}
+		}
+
+		for (int i = 0; i < kMaxBullet; i++)
+		{
 			bullet[i]->Draw();
+		}
+
+		for (int i = 0; i < kMaxEnemies; i++)
+		{
+			enemy[i]->Update();
+			enemy[i]->Draw();
 		}
 
 		///
